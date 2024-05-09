@@ -37,7 +37,7 @@ Docker images are built as well:
 ## Deploy
 You can also deploy using Terraform (it's a fake local deployment).
 ```
-terrabuild run deploy
+terrabuild deploy
 ```
 
 Notice that since targets are cached, build is really fast. You will then have a similar output:
