@@ -5,12 +5,17 @@ This is a repository where you can quickly try [Terrabuild](https://terrabuild.i
 * a typescript (transpiled to js) library (src/libs/tslib)
 * a vuejs project (src/apps/webapp)
 
+## Dependencies
+* Project `src/apps/webapi` has a dependency on `src/libs/cslib`
+* Project `src/apps/webapp` has a dependency on `src/libs/tslib`
+* Project `src/deploy` has dependencies on `src/apps/webapi` and `src/apps/webapp`
+
 ## Targets
 There are several targets declared in this workspace:
 * build: just build projects - this is used on developer environment (local build)
 * dist: build docker images - this is used on CI but can be used on dev env to check everything is running fine
 * push: publish docker images - this is used on CI
-* plan/deploy: targets to check terraform and deploy. Usually used with gated deployment.
+* plan/deploy: targets to check terraform and deploy. Used in gated deployment on CI.
 
 # HOW TO
 Before using this repository, please install [Terrabuild](https://terrabuild.io/docs/getting-started/) and [Docker](https://docs.docker.com/desktop/install/mac-install/). If you are running on macOS, you are advised to use [OrbStack](https://docs.orbstack.dev/install) as it is much faster than Docker Desktop.
