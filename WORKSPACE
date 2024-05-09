@@ -32,7 +32,16 @@ environment release {
 }
 
 extension @dotnet {
+  container = "mcr.microsoft.com/dotnet/sdk:8.0"
   defaults = {
     configuration: $configuration
   }
+}
+
+extension @npm {
+  container = "node:20"
+}
+
+extension @terraform {
+    container = "hashicorp/terraform:1.8"
 }
