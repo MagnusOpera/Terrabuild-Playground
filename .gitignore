@@ -1,0 +1,12 @@
+bin
+obj
+dist
+node_modules
+dist
+.terrabuild
+.vscode
+*.mermaid
+*.log
+terraform.tfstate
+terrabuild.planfile
+.terraform

@@ -1,0 +1,8 @@
+
+configuration @npm {
+    labels = [ "lib" ]
+}
+
+target build {
+    @npm build
+}

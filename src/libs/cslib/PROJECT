@@ -1,0 +1,9 @@
+
+configuration @dotnet {
+    labels = [ "lib"
+               "dotnet" ]
+}
+
+target build {
+    @dotnet build
+}

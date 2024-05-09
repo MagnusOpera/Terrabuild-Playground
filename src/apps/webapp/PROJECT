@@ -1,0 +1,21 @@
+
+extension @docker {
+    defaults = {
+        image: "ghcr.io/magnusopera/sample/webapp"
+        arguments: { configuration: $configuration }
+    }
+}
+
+
+configuration @npm {
+    labels = [ "app" ]
+    dependencies = [ "../../libs/tslib" ]
+}
+
+target build {
+    @npm build
+}
+
+target dist {
+    @docker build
+}

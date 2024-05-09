@@ -1,0 +1,21 @@
+
+extension @docker {
+    defaults = {
+        image: "ghcr.io/magnusopera/sample/webapi"
+        arguments: { configuration: $configuration }
+    }
+}
+
+configuration @dotnet {
+    labels = [ "app"
+               "dotnet" ]
+}
+
+target build {
+    @dotnet build
+}
+
+target dist {
+    @dotnet publish { runtime: "linux-x64" }
+    @docker build { platform: "linux/amd64" }
+}

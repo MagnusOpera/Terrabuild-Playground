@@ -1,0 +1,16 @@
+{
+    "name": "tslib",
+    "version": "1.0.0",
+    "description": "tslib",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^5.4.5"
+    }
+}

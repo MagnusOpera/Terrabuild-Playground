@@ -1,0 +1,18 @@
+
+configuration @terraform {
+    dependencies = [ "/src/apps/webapi"
+                     "/src/apps/webapp" ]
+    labels = [ "infra" ]
+}
+
+target plan {
+    rebuild = true
+    @terraform plan { 
+        variables: { webapi_version: version("/src/apps/webapi")
+                     webapp_version: version("/src/apps/webapp") }
+    }
+}
+
+target deploy {
+    @terraform apply { }
+}
