@@ -9,7 +9,7 @@ This is a repository where you can quickly try [Terrabuild](https://terrabuild.i
 * a typescript (transpiled to js) library (src/libs/tslib)
 * a vuejs project (src/apps/webapp)
 
-## Dependencies
+### Dependencies
 * Project `src/apps/webapi` has a dependency on `src/libs/cslib`
 * Project `src/apps/webapp` has a dependency on `src/libs/tslib`
 * Project `src/deploy` has dependencies on `src/apps/webapi` and `src/apps/webapp`
@@ -88,7 +88,7 @@ flowchart LR
   class publish target
 ```
 
-## Targets
+### Targets
 There are several targets declared in this workspace:
 * build: just build projects - this is used on developer environment (local build)
 * dist: build and publish docker images - this is used on CI but can be used on dev env to check everything is running fine (images stay local if not building on CI)
@@ -103,7 +103,7 @@ git clone https://github.com/MagnusOpera/terrabuild-playground.git
 cd terrabuild-playground
 ```
 
-## Build
+### Build
 You can then build everything using:
 ```
 terrabuild build
@@ -116,7 +116,7 @@ You will then have a similar output:
 Docker images are built as well (here in OrbStack) - note tags can differ as this repository evolves:
 ![Docker Images](docs/docker-images.png)
 
-## Deploy
+### Deploy
 You can also deploy using Terraform (it's a fake local deployment).
 ```
 terrabuild deploy
