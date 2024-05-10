@@ -1,3 +1,7 @@
+<a href="https://terrabuild.io?utm_campaign=magnusopera-terrabuild-playground-github-repo&utm_source=github.com&utm_medium=top-logo" title="Terrabuild - Monorepo build tool">
+    <img src="https://terrabuild.io/images/logo-name.svg" height="50" />
+</a>
+
 # Terrabuild Playground Repository
 This is a repository where you can quickly try [Terrabuild](https://terrabuild.io). There you will find:
 * a .net library project (src/libs/cslib)
