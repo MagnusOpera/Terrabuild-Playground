@@ -6,7 +6,8 @@ extension @docker {
     }
 }
 
-
+# project is based on nodejs: dependency on src / libs / tslib is detected automatically.
+# As an example, it is forced here but not mandatory.
 configuration @npm {
     labels = [ "app" ]
     dependencies = [ "../../libs/tslib" ]

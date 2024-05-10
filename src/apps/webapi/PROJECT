@@ -1,4 +1,5 @@
 
+# configure docker extension (see Dockerfile for ARG)
 extension @docker {
     defaults = {
         image: "ghcr.io/magnusopera/sample/webapi"
@@ -6,15 +7,19 @@ extension @docker {
     }
 }
 
+# project is based on .net: dependency on src/libs/cslib is detected automatically
+# also defines labels for scoped builds
 configuration @dotnet {
-    labels = [ "app"
-               "dotnet" ]
+    labels = [ "app" "dotnet" ]
 }
 
 target build {
     @dotnet build
 }
 
+# to build docker image we need to publish the .net project
+# and then build the image on top of this (check Dockerfile)
+# Docker is targetting linux/x64
 target dist {
     @dotnet publish { runtime: "linux-x64" }
     @docker build { platform: "linux/amd64" }

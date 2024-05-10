@@ -1,24 +1,23 @@
 
+# require all dependencies to be built before building this target
 target build {
   depends_on = [ ^build ]
 }
 
+# requires project to be built before proceeding
 target dist {
   depends_on = [ build ]
 }
 
-target push {
-  depends_on = [ dist ]
-}
-
 target plan {
-    depends_on = [ push ]
+    depends_on = [ dist ]
 }
 
 target deploy {
     depends_on = [ plan ]
 }
 
+# default variables for targets
 environment default {
   variables = {
     configuration: "Debug"
@@ -31,6 +30,9 @@ environment release {
   }
 }
 
+# .net sdk version is forced and build is happening in a container
+# no need to install .net sdk on developer machines
+# also the environment defines the target configuration
 extension @dotnet {
   container = "mcr.microsoft.com/dotnet/sdk:8.0"
   defaults = {
@@ -38,10 +40,14 @@ extension @dotnet {
   }
 }
 
+# nodejs version is forced and build is happening in a container
+# no need to install nodejs on developer machines
 extension @npm {
   container = "node:20"
 }
 
+# terraform version is forced and build is happening in a container
+# no need to install terraform on developer machines
 extension @terraform {
     container = "hashicorp/terraform:1.8"
 }
