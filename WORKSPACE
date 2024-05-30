@@ -18,13 +18,13 @@ target deploy {
 }
 
 # default variables for targets
-environment default {
+configuration {
   variables = {
     configuration: "Debug"
   }
 }
 
-environment release {
+configuration release {
   variables = {
     configuration: "Release"
   }

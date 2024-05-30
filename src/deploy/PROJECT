@@ -1,5 +1,5 @@
 
-configuration @terraform {
+project @terraform {
     dependencies = [ "/src/apps/webapi"
                      "/src/apps/webapp" ]
     labels = [ "infra" ]
@@ -9,7 +9,8 @@ target plan {
     rebuild = true
     @terraform plan { 
         variables: { webapi_version: version("/src/apps/webapi")
-                     webapp_version: version("/src/apps/webapp") }
+                     webapp_version: version("/src/apps/webapp")
+                     target_environment: $terrabuild_environment }
     }
 }
 

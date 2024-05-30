@@ -9,7 +9,7 @@ extension @docker {
 
 # project is based on .net: dependency on src/libs/cslib is detected automatically
 # also defines labels for scoped builds
-configuration @dotnet {
+project @dotnet {
     labels = [ "app" "dotnet" ]
 }
 

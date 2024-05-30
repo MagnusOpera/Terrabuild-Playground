@@ -1,5 +1,5 @@
 
-configuration @npm {
+project @npm {
     labels = [ "lib" ]
 }
 
