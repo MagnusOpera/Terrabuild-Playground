@@ -10,7 +10,7 @@ target plan {
     @terraform plan { 
         variables: { webapi_version: version("/src/apps/webapi")
                      webapp_version: version("/src/apps/webapp")
-                     target_environment: $terrabuild_environment }
+                     target_configuration: $terrabuild_configuration }
     }
 }
 
