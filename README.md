@@ -106,7 +106,7 @@ cd terrabuild-playground
 ### Build
 You can then build everything using:
 ```
-terrabuild build
+terrabuild run build
 ```
 This will build applications and create docker images. Note first run needs to download docker images - this can take some time. This will be much faster next time!
 
@@ -119,7 +119,7 @@ Docker images are built as well (here in OrbStack) - note tags can differ as thi
 ### Deploy
 You can also deploy using Terraform (it's a fake local deployment).
 ```
-terrabuild deploy
+terrabuild run deploy
 ```
 
 Notice that since targets are cached, build is really fast. You will then have a similar output:
