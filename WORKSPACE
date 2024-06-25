@@ -1,20 +1,22 @@
 
-# require all dependencies to be built before building this target
+# build projects
 target build {
-  depends_on = [ ^build ]
+    depends_on = [ ^build ]
 }
 
-# requires project to be built before proceeding
+# generate artifacts
 target dist {
-  depends_on = [ build ]
+    depends_on = [ build ^dist ]
 }
 
+# plan deployment
 target plan {
-    depends_on = [ dist ]
+    depends_on = [ ^plan ]
 }
 
+# run deployment
 target deploy {
-    depends_on = [ plan ]
+    depends_on = [ plan ^apply ^dist ] 
 }
 
 # default variables for targets
