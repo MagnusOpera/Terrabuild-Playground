@@ -117,7 +117,7 @@ Docker images are built as well (here in OrbStack) - note tags can differ as thi
 ![Docker Images](docs/docker-images.png)
 
 ### Deploy
-You can also deploy using Terraform (it's a fake local deployment).
+You can also deploy using Terraform (it's a fake local deployment). You can check deployment in file `src/deploy/deploy.log` and verify it's been updated if something change.
 ```
 terrabuild run deploy
 ```
