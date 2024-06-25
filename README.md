@@ -166,7 +166,7 @@ Notice that since targets are cached, build is really fast. You will then have a
 
 ## Batch build
 
-Terrabuild can optimize build when possible. For example, the .net projects in this workspace can be built in one shot:
+Terrabuild can optimize graph to build several projects together when supported; optimizations are enabled by default. For example, the .net projects in this workspace can be built in one shot:
 
 ```mermaid
 flowchart TB
