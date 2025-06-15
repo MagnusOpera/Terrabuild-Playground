@@ -1,9 +1,9 @@
 
 build:
-	terrabuild run build --log
+	terrabuild run build
 
 dist:
-	terrabuild run dist --log
+	terrabuild run dist
 
 apply:
-	terrabuild run apply --log
+	terrabuild run apply
