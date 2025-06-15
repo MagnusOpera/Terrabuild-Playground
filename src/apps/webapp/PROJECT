@@ -1,22 +1,20 @@
 
-extension @docker {
-    defaults = {
-        image: "ghcr.io/magnusopera/sample/webapp"
-        arguments: { configuration: $configuration }
-    }
-}
-
-# project is based on nodejs: dependency on src / libs / tslib is detected automatically.
-# As an example, it is forced here but not mandatory.
-project @npm {
+project webapp {
     labels = [ "app" ]
-    dependencies = [ "../../libs/tslib" ]
+    ignores = [ "vite.config.js"
+                "tsconfig.node.tsbuildinfo"
+                "tsconfig.tsbuildinfo" ]
+    @npm { }
 }
 
 target build {
-    @npm build
+    @npm build { }
 }
 
 target dist {
-    @docker build
+    @docker build { arguments = { nginx_version: local.docker_tags.nginx } }
+}
+
+target serve {
+    @npm dev { }
 }

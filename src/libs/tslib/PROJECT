@@ -1,8 +1,10 @@
 
-project @npm {
+project {
     labels = [ "lib" ]
+    @npm { }
 }
 
 target build {
-    @npm build
+    @npm build { }
 }
+

@@ -1,6 +1,11 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-ARG configuration=Release
+ARG dotnet_version
+ARG configuration
+ARG platform
+FROM mcr.microsoft.com/dotnet/aspnet:${dotnet_version}
 
 WORKDIR /app
-COPY bin/${configuration}/net8.0/linux-x64/publish /app
-ENTRYPOINT ["/app/webapi"]
+COPY bin/${configuration}/${dotnet_version}/${platform} .
+
+USER app
+ENTRYPOINT [ "./webapi" ]
+CMD [ "./webapi" ]

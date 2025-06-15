@@ -1,4 +1,5 @@
-FROM nginx:alpine
+ARG nginx_version="latest"
+FROM nginx:${nginx_version}
 
 # Create app directory
 WORKDIR /usr/src/app

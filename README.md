@@ -149,14 +149,14 @@ You will then have a similar output:
 Docker images are built as well (here in OrbStack) - note tags can differ as this repository evolves:
 ![Docker Images](docs/docker-images.png)
 
-### Deploy
+### Apply
 You can also deploy using Terraform (it's a fake local deployment). You can check deployment in file `src/deploy/deploy.log` and verify it's been updated if something change.
 ```
-terrabuild run deploy
+terrabuild run apply
 ```
 
 Notice that since targets are cached, build is really fast. You will then have a similar output:
-![Deploy Output](docs/deploy-output.png)
+![Apply Output](docs/apply-output.png)
 
 # Key takeaways
 * Building and deploying the project only required few deployment on local machine (Terrabuild and Docker).

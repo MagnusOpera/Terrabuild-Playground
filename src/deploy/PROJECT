@@ -1,19 +1,16 @@
-
-project @terraform {
-    dependencies = [ "/src/apps/webapi"
-                     "/src/apps/webapp" ]
-    labels = [ "infra" ]
+project deploy_apps {
+    labels = [ "deploy" ]
+    @terraform { }
 }
 
 target plan {
-    rebuild = true
-    @terraform plan { 
-        variables: { webapi_version: version("/src/apps/webapi")
-                     webapp_version: version("/src/apps/webapp")
-                     target_configuration: $terrabuild_configuration }
+    @terraform plan {
+        variables = { webapi_version: project.webapi.version
+                      webapp_version: project.webapp.version
+                      target_environment: local.dotnet.config  }
     }
 }
 
-target deploy {
+target apply {
     @terraform apply { }
 }

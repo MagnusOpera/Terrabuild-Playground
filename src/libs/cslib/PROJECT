@@ -1,9 +1,10 @@
 
-project @dotnet {
+project {
     labels = [ "lib"
                "dotnet" ]
+    @dotnet { }
 }
 
 target build {
-    @dotnet build
+    @dotnet build { }
 }
