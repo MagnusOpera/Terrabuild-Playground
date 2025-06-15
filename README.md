@@ -144,9 +144,11 @@ terrabuild run build
 This will build applications and create docker images. Note first run needs to download docker images - this can take some time. This will be much faster next time!
 
 You will then have a similar output:
+
 ![Build Output](docs/build-output.png)
 
 Docker images are built as well (here in OrbStack) - note tags can differ as this repository evolves:
+
 ![Docker Images](docs/docker-images.png)
 
 ### Apply
@@ -156,6 +158,7 @@ terrabuild run apply
 ```
 
 Notice that since targets are cached, build is really fast. You will then have a similar output:
+
 ![Apply Output](docs/apply-output.png)
 
 # Key takeaways
