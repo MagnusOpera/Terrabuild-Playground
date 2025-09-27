@@ -5,13 +5,17 @@ project webapi {
 }
 
 target build {
-    @dotnet build { }
+    @dotnet restore { dependencies = true }
+    @dotnet build { dependencies = true }
 }
 
 target dist {
-    @dotnet publish { single = true }
+    @dotnet restore { dependencies = true }
+    @dotnet publish { single = true
+                      build = true
+                      restore = true }
     @docker build {
-        arguments = {
+        build_args = {
             dotnet_version: local.docker_tags.dotnet_runtime
             platform: local.runtimes.dotnet
             configuration: local.dotnet.config } }

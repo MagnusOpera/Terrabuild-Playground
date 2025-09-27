@@ -1,3 +1,4 @@
+
 # build projects
 target build {
     depends_on = [ target.^build ]
@@ -10,23 +11,21 @@ target test {
 
 # generate artifacts
 target dist {
-    managed = false
     depends_on = [ target.build
-                   target.^dist ]
+                   target.^build ]
 }
 
 # plan deployment
 target plan {
     rebuild = terrabuild.retry
-    depends_on = [ target.dist
-                   target.^plan ]
+
+    depends_on = [ ]
 }
 
 # run deployment
 target apply {
-    managed = false
     depends_on = [ target.plan
-                   target.^apply ]
+                   target.^dist ]
 }
 
 
@@ -49,6 +48,7 @@ locals {
 
 extension @dotnet {
     container = "mcr.microsoft.com/dotnet/sdk:${local.docker_tags.dotnet_sdk}"
+    batch = true
     defaults {
         runtime = local.runtimes.dotnet
         configuration = local.dotnet.config

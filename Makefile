@@ -1,9 +1,9 @@
 
 build:
-	terrabuild run build
+	terrabuild run build --retry
 
 dist:
-	terrabuild run dist
+	terrabuild run dist --retry
 
 apply:
-	terrabuild run apply
+	terrabuild run apply --retry

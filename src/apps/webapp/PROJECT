@@ -12,7 +12,7 @@ target build {
 }
 
 target dist {
-    @docker build { arguments = { nginx_version: local.docker_tags.nginx } }
+    @docker build { build_args = { nginx_version: local.docker_tags.nginx } }
 }
 
 target serve {

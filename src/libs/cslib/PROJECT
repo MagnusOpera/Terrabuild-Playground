@@ -6,5 +6,6 @@ project {
 }
 
 target build {
-    @dotnet build { }
+    @dotnet restore { dependencies = true }
+    @dotnet build { dependencies = true }
 }
