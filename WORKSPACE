@@ -17,7 +17,7 @@ target dist {
 
 # plan deployment
 target plan {
-    rebuild = terrabuild.retry
+    build = terrabuild.retry ? ~always : ~auto
 
     depends_on = [ ]
 }
@@ -47,8 +47,7 @@ locals {
 
 
 extension @dotnet {
-    container = "mcr.microsoft.com/dotnet/sdk:${local.docker_tags.dotnet_sdk}"
-    batch = true
+    image = "mcr.microsoft.com/dotnet/sdk:${local.docker_tags.dotnet_sdk}"
     defaults {
         runtime = local.runtimes.dotnet
         configuration = local.dotnet.config
@@ -63,5 +62,5 @@ extension @docker {
 }
 
 extension @npm {
-    container = "node:${local.docker_tags.nodejs}"
+    image = "node:${local.docker_tags.nodejs}"
 }
